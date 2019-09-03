@@ -1,0 +1,7 @@
+{
+    "name": "Easometric",
+    "id": "750743440401413268",
+    "api": "1.0.0",
+    "main": "dist/code.js",
+    "ui": "dist/ui.html"
+}
