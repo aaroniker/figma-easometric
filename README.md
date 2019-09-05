@@ -1,6 +1,12 @@
 # Figma Easometric
 
-...
+![Preview](https://aaroniker.me/easometric.gif)
+
+With Easometric it's really easy to create isometric layers & groups.
+
+This plugin using SSR30⁰, which is the most popular and flexible method of creating isometric artworks. With SSR30⁰ you can quickly create top, left and right isometric views.
+
+Simple as that you can either quick apply a top, left or right perspective or using the modal to modify your layer.
 
 ## Usage
 

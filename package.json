@@ -1,7 +1,7 @@
 {
   "name": "figma-easometric",
   "version": "1.0.0",
-  "description": "...",
+  "description": "With Easometric it is really easy to create isometric layers & groups",
   "main": "code.js",
   "scripts": {
     "dev": "npx webpack --mode=development --watch",
