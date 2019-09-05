@@ -103,9 +103,8 @@ if(figma.command == 'modal') {
             figma.clientStorage.getAsync('easometricClose').then(bool => {
                 bool = bool === undefined ? true : bool
                 setIsomentric(selection[0], response.direction)
-                figma.notify('Isometric set.')
                 if(bool) {
-                    figma.closePlugin()
+                    figma.closePlugin('Isometric set.')
                 }
             })
         }
