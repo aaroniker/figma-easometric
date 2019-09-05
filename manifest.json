@@ -3,5 +3,29 @@
     "id": "750743440401413268",
     "api": "1.0.0",
     "main": "dist/code.js",
-    "ui": "dist/ui.html"
+    "ui": "dist/ui.html",
+    "menu": [
+        {
+            "separator": true
+        },
+        {
+            "name": "Left",
+            "command": "left"
+        },
+        {
+            "name": "Top",
+            "command": "top"
+        },
+        {
+            "name": "Right",
+            "command": "right"
+        },
+        {
+            "separator": true
+        },
+        {
+            "name": "Open Easometric",
+            "command": "modal"
+        }
+    ]
 }
