@@ -7,6 +7,7 @@
     font-family: 'Inter', 'Inter UI', Arial;
     padding: 4px 8px;
     nav {
+        margin: 32px 0 20px 0;
         ul {
             padding: 0;
             margin: 0;
@@ -69,7 +70,7 @@
     .box {
         position: relative;
         height: 148px;
-        margin: 36px 0;
+        margin: 28px 0 0 0;
         & > div {
             --r: 0deg;
             --s: 0deg;

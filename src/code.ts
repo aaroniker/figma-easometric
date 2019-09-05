@@ -81,7 +81,7 @@ if(figma.command == 'modal') {
 
     figma.showUI(__html__, {
         width: 320,
-        height: 320
+        height: 328
     })
 
     figma.ui.postMessage({
