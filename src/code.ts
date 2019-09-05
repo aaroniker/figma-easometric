@@ -58,7 +58,7 @@ function setIsomentric(node, direction) {
 }
 
 function setActive(selection) {
-    if(selection.relativeTransform && selection.rotation) {
+    if(selection && selection.relativeTransform && selection.rotation) {
         switch(~~selection.rotation) {
             case 90:
                 return 'left'
