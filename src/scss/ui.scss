@@ -1,3 +1,167 @@
 #easometric {
+    --primary: #00a0ff;
+    --primary-pale: rgba(0, 160, 255, .2);
+    --inactive: #b6b6b6;
+    --line: #dddddd;
+    --border: #b6b6b6;
+    font-family: 'Inter', 'Inter UI', Arial;
+    padding: 4px 8px;
+    nav {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            li {
+                &:first-child {
+                    a {
+                        border-radius: 5px 0 0 5px;
+                    }
+                }
+                &:last-child {
+                    a {
+                        border-radius: 0 5px 5px 0;
+                    }
+                }
+                &:not(:first-child) {
+                    margin-left: -1px;
+                }
+                a {
+                    display: block;
+                    cursor: pointer;
+                    text-align: center;
+                    position: relative;
+                    padding: 12px 0;
+                    font-weight: 500;
+                    font-size: 14px;
+                    border: 1px solid var(--line);
+                    color: var(--inactive);
+                    transition: color .3s ease, border .3s ease;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: -1px;
+                        top: -1px;
+                        right: -1px;
+                        bottom: -1px;
+                        z-index: 1;
+                        pointer-events: none;
+                        border-radius: inherit;
+                        border: 1px solid var(--primary);
+                        opacity: 0;
+                        transition: opacity .3s ease;
+                    }
+                    &:hover,
+                    &.hover {
+                        color: var(--primary);
+                    }
+                    &.active {
+                        color: var(--primary);
+                        &:before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .box {
+        position: relative;
+        height: 148px;
+        margin: 36px 0;
+        & > div {
+            --r: 0deg;
+            --s: 0deg;
+            --x: 0px;
+            --y: 0px;
+            transform-origin: 0 0;
+            width: 72px;
+            height: 72px;
+            top: 0;
+            left: 50%;
+            cursor: pointer;
+            margin: -60px 0 0 -113px;
+            position: absolute;
+            border: 1px dashed var(--border);
+            transition: background .3s ease, border .3s ease;
+            transform: rotate(var(--r)) skewX(var(--s)) translate(var(--x), var(--y)) scaleY(.864);
+            &.left {
+                --s: -30deg;
+                --r: 90deg;
+                --x: 68px;
+                --y: -113px;
+            }
+            &.top {
+                --s: -30deg;
+                --r: 210deg;
+                --x: -200px;
+                --y: -60px;
+            }
+            &.right {
+                --s: -30deg;
+                --r: -30deg;
+                --x: 130px;
+                --y: 172px;
+            }
+            &:hover,
+            &.hover {
+                border: 1px solid var(--primary);
+                background: var(--primary-pale);
+            }
+            &.active {
+                border: 1px solid var(--primary);
+                background: var(--primary);
+            }
+        }
+    }
+}
 
+.switch {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+        display: block;
+        list-style: 23px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--inactive);
+    }
+    input {
+        display: none;
+        & + div {
+            --background: var(--line);
+            width: 42px;
+            height: 23px;
+            cursor: pointer;
+            border-radius: 12px;
+            position: relative;
+            background: var(--background);
+            transition: background .4s ease;
+            &:before {
+                --x: 0;
+                content: '';
+                transition: transform .4s cubic-bezier(.175, .88, .32, 1.2);
+                background: #fff;
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                left: 4px;
+                top: 4px;
+                transform: translateX(var(--x));
+            }
+        }
+        &:checked {
+            & + div {
+                --background: var(--primary);
+                &:before {
+                    --x: 19px;
+                }
+            }
+        }
+    }
 }
