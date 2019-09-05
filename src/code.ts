@@ -20,10 +20,16 @@ function getOptions(direction) {
                 degree: 30
             }
         break
-        default:
+        case 'top':
             return {
                 skew: -30,
                 degree: -30
+            }
+        break
+        default:
+            return {
+                skew: 0,
+                degree: 0
             }
         break
     }
@@ -46,8 +52,6 @@ function setIsomentric(node, direction) {
 
     node.x = x
     node.y = y
-
-    console.log(matrix.a)
 
     return node
 

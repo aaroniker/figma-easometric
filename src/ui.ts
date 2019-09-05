@@ -19,6 +19,8 @@ $('[data-direction]').on('click', e => {
         keep = $('[name="close"]').is(':checked'),
         active = link.data('direction')
 
+    active = link.hasClass('active') ? 'none' : active
+
     $('[data-direction]').removeClass('active');
     $('[data-direction="' + active + '"]').addClass('active')
 
