@@ -10,7 +10,7 @@ Simple as that you can either quick apply a top, left or right perspective or us
 
 ## Usage
 
-...
+Download it on the Figma plugin library [figma.com/c/plugin/750743440401413268/Easometric](https://www.figma.com/c/plugin/750743440401413268/Easometric)
 
 ## Development
 
