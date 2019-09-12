@@ -13,8 +13,12 @@
             "command": "left"
         },
         {
-            "name": "Top",
-            "command": "top"
+            "name": "Top Left",
+            "command": "top-left"
+        },
+        {
+            "name": "Top Right",
+            "command": "top-right"
         },
         {
             "name": "Right",

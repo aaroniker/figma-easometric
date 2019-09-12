@@ -9,6 +9,7 @@ window.onmessage = async (event) => {
     if(event.data.pluginMessage.type == 'setActive') {
         if(event.data.pluginMessage.active) {
             $('[data-direction="' + event.data.pluginMessage.active + '"]').addClass('active')
+            $('#easometric .box .top').toggleClass('active', event.data.pluginMessage.active == 'top-left' || event.data.pluginMessage.active == 'top-right')
         }
     }
 }
@@ -20,6 +21,8 @@ $('[data-direction]').on('click', e => {
         active = link.data('direction')
 
     active = link.hasClass('active') ? 'none' : active
+
+    $('#easometric .box .top').toggleClass('active', active == 'top-left' || active == 'top-right')
 
     $('[data-direction]').removeClass('active');
     $('[data-direction="' + active + '"]').addClass('active')

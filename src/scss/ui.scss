@@ -13,7 +13,7 @@
             margin: 0;
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             li {
                 &:first-child {
                     a {
@@ -112,11 +112,53 @@
                 --r: 210deg;
                 --x: -199px;
                 --y: -59px;
+                cursor: default;
+                overflow: hidden;
                 &:after {
                     border-top-color: transparent;
                     border-left-color: transparent;
                     top: -1px;
                     left: -1px;
+                }
+                span {
+                    --r: 90deg;
+                    --s: 1;
+                    display: block;
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    transform-origin: 50% 50%;
+                    opacity: .6;
+                    transition: opacity .3s ease, transform .3s ease;
+                    position: absolute;
+                    transform: rotate(var(--r)) scale(var(--s));
+                    color: var(--inactive);
+                    svg {
+                        display: block;
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin: -12px 0 0 -12px;
+                    }
+                    &[data-direction='top-right'] {
+                        left: 0;
+                        bottom: 0;
+                    }
+                    &[data-direction='top-left'] {
+                        top: 0;
+                        right: 0;
+                        --r: 180deg;
+                    }
+                    &:hover,
+                    &.hover {
+                        opacity: 1;
+                    }
+                    &.active {
+                        --s: 1.5;
+                        opacity: 1;
+                    }
                 }
             }
             &.right {
@@ -131,9 +173,15 @@
                 &:after {
                     border-color: var(--primary);
                 }
+                span {
+                    color: var(--primary);
+                }
             }
             &.active {
                 background: var(--primary);
+                span {
+                    color: #fff;
+                }
             }
         }
     }

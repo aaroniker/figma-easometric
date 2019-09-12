@@ -1,4 +1,4 @@
-const {skewDEG, compose} = require('transformation-matrix')
+const {skewDEG, rotateDEG, compose} = require('transformation-matrix')
 
 const selection = figma.currentPage.selection
 
@@ -10,24 +10,35 @@ function getOptions(direction) {
     switch(direction) {
         case 'left':
             return {
+                rotate: 0,
                 skew: 30,
                 degree: -30
             }
         break
         case 'right':
             return {
+                rotate: 0,
                 skew: -30,
                 degree: 30
             }
         break
-        case 'top':
+        case 'top-left':
             return {
+                rotate: 0,
                 skew: -30,
                 degree: -30
             }
         break
+        case 'top-right':
+            return {
+                rotate: 90,
+                skew: -30,
+                degree: 30
+            }
+        break
         default:
             return {
+                rotate: 0,
                 skew: 0,
                 degree: 0
             }
@@ -39,6 +50,7 @@ function setIsomentric(node, direction) {
 
     let options = getOptions(direction),
         matrix = compose(
+            rotateDEG(options.rotate),
             skewDEG(0, options.skew)
         ),
         x = node.x,
