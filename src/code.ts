@@ -10,8 +10,8 @@ function getOptions(direction) {
     switch(direction) {
         case 'left':
             return {
-                skew: -30,
-                degree: 90
+                skew: 30,
+                degree: -30
             }
         break
         case 'right':
@@ -53,28 +53,14 @@ function setIsomentric(node, direction) {
     node.x = x
     node.y = y
 
+    node.setPluginData('direction', direction)
+
     return node
 
 }
 
 function setActive(selection) {
-    if(selection && selection.relativeTransform && selection.rotation) {
-        switch(~~selection.rotation) {
-            case 90:
-                return 'left'
-            break
-            case -30:
-                return 'top'
-            break
-            case 30:
-                return 'right'
-            break
-            default:
-                return false
-            break
-        }
-    }
-    return false
+    return selection.getPluginData('direction') ? selection.getPluginData('direction') : false
 }
 
 if(figma.command == 'modal') {
