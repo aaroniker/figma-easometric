@@ -120,6 +120,18 @@
                     top: -1px;
                     left: -1px;
                 }
+                &.hover-top-left {
+                    &:after {
+                        border-right-color: var(--primary);
+                        border-top-color: var(--primary);
+                    }
+                }
+                &.hover-top-right {
+                    &:after {
+                        border-bottom-color: var(--primary);
+                        border-left-color: var(--primary);
+                    }
+                }
                 span {
                     --x: 0px;
                     --y: 0px;
