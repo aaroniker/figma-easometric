@@ -34,6 +34,7 @@ Done! Now _Plugins -> Development -> Easometric_
 ## ToDo
 
 - [ ] Add SR45⁰ method
+- [ ] Live Preview
 
 ## Authors
 
