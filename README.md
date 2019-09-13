@@ -35,6 +35,7 @@ Done! Now _Plugins -> Development -> Easometric_
 
 - [ ] Add SR45⁰ method
 - [ ] Live Preview
+- [ ] Node stay at same position after choose an angle
 
 ## Authors
 
