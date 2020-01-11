@@ -8,6 +8,7 @@ window.onmessage = async (event) => {
     }
     if(event.data.pluginMessage.type == 'setActive') {
         if(event.data.pluginMessage.active) {
+            $('[data-direction]').removeClass('active')
             $('[data-direction="' + event.data.pluginMessage.active + '"]').addClass('active')
         }
     }

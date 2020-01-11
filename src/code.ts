@@ -1,6 +1,6 @@
 const {skewDEG, rotateDEG, compose} = require('transformation-matrix')
 
-const selection = figma.currentPage.selection
+let selection = figma.currentPage.selection
 
 if(selection.length !== 1) {
     figma.closePlugin('Select a single node.')
@@ -72,7 +72,10 @@ function setIsomentric(node, direction) {
 }
 
 function setActive(selection) {
-    return selection.getPluginData('direction') ? selection.getPluginData('direction') : false
+    if(selection.length !== 1) {
+        return false
+    }
+    return selection[0].getPluginData('direction') || false
 }
 
 if(figma.command == 'modal') {
@@ -82,9 +85,20 @@ if(figma.command == 'modal') {
         height: 328
     })
 
+    figma.on('selectionchange', () => {
+        selection = figma.currentPage.selection
+        if(selection.length !== 1) {
+            figma.closePlugin('Select a single node.')
+        }
+        figma.ui.postMessage({
+            type: 'setActive',
+            active: setActive(selection)
+        })
+    })
+
     figma.ui.postMessage({
         type: 'setActive',
-        active: setActive(selection[0])
+        active: setActive(selection)
     })
 
     figma.clientStorage.getAsync('easometricClose').then(bool => {
