@@ -6,6 +6,7 @@
     --border: #b6b6b6;
     font-family: 'Inter', 'Inter UI', Arial;
     padding: 4px 8px;
+    position: relative;
     nav {
         margin: 32px 0 20px 0;
         ul {
@@ -212,19 +213,47 @@
     }
 }
 
-.switch {
-    width: 100%;
-    position: relative;
+.skew {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
     span {
-        display: block;
-        list-style: 23px;
         font-size: 14px;
         font-weight: 500;
         color: var(--inactive);
     }
+
+    #skew-angle {
+        flex: 0 0 60px;
+        margin: 0;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 1px solid var(--line);
+        outline: none;
+        font-size: 14px;
+        color: var(--primary);
+        text-align: right;
+
+        &:focus {
+            border-color: var(--primary);
+        }
+    }
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--inactive);
+    }
+
     input {
         display: none;
         & + div {
@@ -259,4 +288,20 @@
             }
         }
     }
+}
+
+#easometric.blocked::before {
+    content: "Select a single node";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    opacity: 0.75;
+    z-index: 10;
+    cursor: not-allowed;
 }

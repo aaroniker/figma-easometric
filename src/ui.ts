@@ -1,6 +1,6 @@
 import './scss/ui.scss'
 
-var $ = require('jQuery')
+const $ = require('jQuery')
 
 window.onmessage = async (event) => {
     if(event.data.pluginMessage.type == 'setToggle') {
@@ -12,12 +12,21 @@ window.onmessage = async (event) => {
             $('[data-direction="' + event.data.pluginMessage.active + '"]').addClass('active')
         }
     }
+
+    if (event.data.pluginMessage.type == 'setAngle' && event.data.pluginMessage.angle) {
+        $('#skew-angle').val(event.data.pluginMessage.angle)
+    }
+
+    if (event.data.pluginMessage.type == 'setBlocked') {
+        event.data.pluginMessage.state ?
+            $('#easometric').addClass('blocked') :
+            $('#easometric').removeClass('blocked')
+    }
 }
 
 $('[data-direction]').on('click', e => {
 
     let link = $(e.currentTarget),
-        keep = $('[name="close"]').is(':checked'),
         active = link.data('direction')
 
     active = link.hasClass('active') ? 'none' : active
@@ -28,12 +37,12 @@ $('[data-direction]').on('click', e => {
     parent.postMessage({
         pluginMessage: {
             type: 'set',
-            direction: active
+            direction: active,
+            angle: parseFloat($('#skew-angle').val())
         }
     }, '*')
 
-    return false;
-
+    return false
 })
 
 $('[data-direction]').hover(function(e) {
@@ -49,6 +58,16 @@ $('[name="close"]').on('change', e => {
         pluginMessage: {
             type: 'toggle',
             bool: $('[name="close"]').is(':checked')
+        }
+    }, '*')
+})
+
+$('#skew-angle').on('input', function(e) {
+    parent.postMessage({
+        pluginMessage: {
+            type: 'set',
+            direction: $('[data-direction].active').data('direction'),
+            angle: parseFloat(e.currentTarget.value) || 0
         }
     }, '*')
 })
