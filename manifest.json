@@ -1,35 +1,36 @@
 {
-    "name": "Easometric",
-    "id": "750743440401413268",
-    "api": "1.0.0",
-    "main": "dist/code.js",
-    "ui": "dist/ui.html",
-    "menu": [
-        {
-            "separator": true
-        },
-        {
-            "name": "Left",
-            "command": "left"
-        },
-        {
-            "name": "Top Left",
-            "command": "top-left"
-        },
-        {
-            "name": "Top Right",
-            "command": "top-right"
-        },
-        {
-            "name": "Right",
-            "command": "right"
-        },
-        {
-            "separator": true
-        },
-        {
-            "name": "Open Easometric",
-            "command": "modal"
-        }
-    ]
+  "name": "Easometric",
+  "id": "750743440401413268",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma"],
+  "menu": [
+    {
+      "separator": true
+    },
+    {
+      "name": "Left",
+      "command": "left"
+    },
+    {
+      "name": "Top Left",
+      "command": "top-left"
+    },
+    {
+      "name": "Top Right",
+      "command": "top-right"
+    },
+    {
+      "name": "Right",
+      "command": "right"
+    },
+    {
+      "separator": true
+    },
+    {
+      "name": "Open Easometric",
+      "command": "modal"
+    }
+  ]
 }

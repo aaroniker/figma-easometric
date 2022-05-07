@@ -1,0 +1,306 @@
+#easometric {
+  --primary: #00a0ff;
+  --primary-pale: rgba(0, 160, 255, 0.2);
+  --inactive: #b6b6b6;
+  --line: #dddddd;
+  --border: #b6b6b6;
+  font-family: "Inter", "Inter UI", Arial;
+  padding: 4px 8px;
+
+  nav {
+    margin: 32px 0 20px 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      li {
+        &:first-child {
+          button {
+            border-radius: 5px 0 0 5px;
+          }
+        }
+
+        &:last-child {
+          button {
+            border-radius: 0 5px 5px 0;
+          }
+        }
+
+        &:not(:first-child) {
+          margin-left: -1px;
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          cursor: pointer;
+          text-align: center;
+          position: relative;
+          padding: 12px 0;
+          margin: 0;
+          appearance: none;
+          font: inherit;
+          background: none;
+          font-weight: 500;
+          font-size: 14px;
+          border: 1px solid var(--line);
+          color: var(--inactive);
+          transition: color 0.3s ease, border 0.3s ease;
+
+          &:before {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: inherit;
+            border: 1px solid var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          &:hover,
+          &.hover {
+            color: var(--primary);
+          }
+
+          &.active {
+            color: var(--primary);
+            &:before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .box {
+    position: relative;
+    height: 148px;
+    margin: 28px 0 0 0;
+
+    & > div {
+      --r: 0deg;
+      --s: 0deg;
+      --x: 0px;
+      --y: 0px;
+      transform-origin: 0 0;
+      width: 72px;
+      height: 72px;
+      top: 0;
+      left: 50%;
+      cursor: pointer;
+      margin: -60px 0 0 -113px;
+      position: absolute;
+      transition: background-color 0.3s ease, border 0.3s ease;
+      transform: rotate(var(--r)) skewX(var(--s)) translate(var(--x), var(--y))
+        scaleY(0.864);
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        pointer-events: none;
+        transition: border 0.3s ease, opacity 0.3s ease;
+      }
+
+      &:after {
+        border: 1px dashed var(--border);
+      }
+
+      &.left {
+        --s: -30deg;
+        --r: 90deg;
+        --x: 68px;
+        --y: -113px;
+      }
+
+      &.top {
+        --s: -30deg;
+        --r: 210deg;
+        --x: -199px;
+        --y: -59px;
+        cursor: default;
+        overflow: hidden;
+
+        &:after {
+          border-top-color: transparent;
+          border-left-color: transparent;
+          top: -1px;
+          left: -1px;
+        }
+
+        &.hover-top-left {
+          &:after {
+            border-right-color: var(--primary);
+            border-top-color: var(--primary);
+          }
+        }
+
+        &.hover-top-right {
+          &:after {
+            border-bottom-color: var(--primary);
+            border-left-color: var(--primary);
+          }
+        }
+
+        span {
+          --x: 0px;
+          --y: 0px;
+          --s: 1;
+          display: block;
+          cursor: pointer;
+          width: 100px;
+          height: 100px;
+          transform-origin: 50% 50%;
+          transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+          position: absolute;
+          transform: rotate(var(--r)) translate(var(--x), var(--y))
+            scale(var(--s));
+          color: var(--inactive);
+
+          svg {
+            --r: 0deg;
+            display: block;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            margin: -12px 0 0 -12px;
+            transform: rotate(var(--r));
+          }
+
+          &[data-direction="top-right"] {
+            --r: 135deg;
+            --x: 70px;
+            left: 0;
+            bottom: 0;
+
+            svg {
+              --r: -45deg;
+              left: 17%;
+              top: 55%;
+            }
+          }
+
+          &[data-direction="top-left"] {
+            --y: -70px;
+            --r: 45deg;
+            top: 0;
+            right: 0;
+
+            svg {
+              --r: 135deg;
+              left: 45%;
+              top: 83%;
+            }
+          }
+
+          &:hover,
+          &.hover {
+            background: var(--primary-pale);
+            color: var(--primary);
+          }
+
+          &.active {
+            background: var(--primary);
+            color: #fff;
+          }
+        }
+      }
+
+      &.right {
+        --s: -30deg;
+        --r: -30deg;
+        --x: 130px;
+        --y: 172px;
+      }
+
+      &:not(.top) {
+        &:hover,
+        &.hover {
+          background: var(--primary-pale);
+
+          &:after {
+            border-color: var(--primary);
+          }
+
+          span {
+            color: var(--primary);
+          }
+        }
+
+        &.active {
+          background: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+.switch {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    display: block;
+    list-style: 23px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--inactive);
+  }
+
+  input {
+    display: none;
+
+    & + div {
+      --background: var(--line);
+      width: 42px;
+      height: 23px;
+      cursor: pointer;
+      border-radius: 12px;
+      position: relative;
+      background: var(--background);
+      transition: background 0.4s ease;
+
+      &:before {
+        --x: 0;
+        content: "";
+        transition: transform 0.4s cubic-bezier(0.175, 0.88, 0.32, 1.2);
+        background: #fff;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        left: 4px;
+        top: 4px;
+        transform: translateX(var(--x));
+      }
+    }
+
+    &:checked {
+      & + div {
+        --background: var(--primary);
+
+        &:before {
+          --x: 19px;
+        }
+      }
+    }
+  }
+}
