@@ -77,6 +77,7 @@ if (figma.command == "modal") {
   figma.showUI(__html__, {
     width: 320,
     height: 328,
+    themeColors: true,
   });
 
   figma.on("selectionchange", () => {

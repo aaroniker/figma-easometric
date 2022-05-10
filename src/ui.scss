@@ -1,9 +1,9 @@
 #easometric {
-  --primary: #00a0ff;
-  --primary-pale: rgba(0, 160, 255, 0.2);
-  --inactive: #b6b6b6;
-  --line: #dddddd;
-  --border: #b6b6b6;
+  --primary: var(--figma-color-bg-brand);
+  --primary-pale: var(--figma-color-bg-brand-tertiary);
+  --inactive: var(--figma-color-text-tertiary);
+  --line: var(--figma-color-border);
+  --border: var(--figma-color-border);
   font-family: "Inter", "Inter UI", Arial;
   padding: 4px 8px;
 
@@ -49,7 +49,7 @@
           font-size: 14px;
           border: 1px solid var(--line);
           color: var(--inactive);
-          transition: color 0.3s ease, border 0.3s ease;
+          transition: color 0.3s ease, border 0.3s ease, background-color 0.3s;
 
           &:before {
             content: "";
@@ -68,11 +68,12 @@
 
           &:hover,
           &.hover {
-            color: var(--primary);
+            color: var(--figma-color-text-secondary);
           }
 
           &.active {
             color: var(--primary);
+            background-color: var(--primary-pale);
             &:before {
               opacity: 1;
             }
