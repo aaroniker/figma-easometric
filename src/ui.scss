@@ -7,6 +7,21 @@
   font-family: "Inter", "Inter UI", Arial;
   padding: 4px 8px;
 
+  .follow {
+    border-top: 1px solid var(--line);
+    padding: 8px 0 4px 8px;
+    font-size: 13px;
+    line-height: 28px;
+    font-weight: 500;
+    color: var(--inactive);
+    margin: 12px -8px -4px -8px;
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  }
+
   nav {
     margin: 32px 0 20px 0;
 
@@ -74,6 +89,7 @@
           &.active {
             color: var(--primary);
             background-color: var(--primary-pale);
+
             &:before {
               opacity: 1;
             }
@@ -88,7 +104,7 @@
     height: 148px;
     margin: 28px 0 0 0;
 
-    & > div {
+    &>div {
       --r: 0deg;
       --s: 0deg;
       --x: 0px;
@@ -102,8 +118,7 @@
       margin: -60px 0 0 -113px;
       position: absolute;
       transition: background-color 0.3s ease, border 0.3s ease;
-      transform: rotate(var(--r)) skewX(var(--s)) translate(var(--x), var(--y))
-        scaleY(0.864);
+      transform: rotate(var(--r)) skewX(var(--s)) translate(var(--x), var(--y)) scaleY(0.864);
 
       &:before,
       &:after {
@@ -169,8 +184,7 @@
           transform-origin: 50% 50%;
           transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
           position: absolute;
-          transform: rotate(var(--r)) translate(var(--x), var(--y))
-            scale(var(--s));
+          transform: rotate(var(--r)) translate(var(--x), var(--y)) scale(var(--s));
           color: var(--inactive);
 
           svg {
@@ -230,6 +244,7 @@
       }
 
       &:not(.top) {
+
         &:hover,
         &.hover {
           background: var(--primary-pale);
@@ -269,7 +284,7 @@
   input {
     display: none;
 
-    & + div {
+    &+div {
       --background: var(--line);
       width: 42px;
       height: 23px;
@@ -295,7 +310,7 @@
     }
 
     &:checked {
-      & + div {
+      &+div {
         --background: var(--primary);
 
         &:before {

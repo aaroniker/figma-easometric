@@ -75,8 +75,8 @@ function setActive(selection) {
 
 if (figma.command == "modal") {
   figma.showUI(__html__, {
-    width: 320,
-    height: 328,
+    width: 368,
+    height: 368,
     themeColors: true,
   });
 

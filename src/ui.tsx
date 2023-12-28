@@ -178,6 +178,13 @@ export const App: React.FC = () => {
         />
         <div></div>
       </label>
+      <p className="follow">
+        Follow me on{" "}
+        <a target="_blank" href="https://twitter.com/aaroniker_me">
+          𝕏 (@aaroniker_me)
+        </a>{" "}
+        for updates &amp; more.
+      </p>
     </div>
   );
 };
