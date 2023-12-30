@@ -32,5 +32,6 @@
       "name": "Open Easometric",
       "command": "modal"
     }
-  ]
+  ],
+  "networkAccess": { "allowedDomains": ["none"] }
 }
